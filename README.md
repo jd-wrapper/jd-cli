@@ -4,6 +4,7 @@ JD-CLI, a standalone command line utility that displays Java sources from CLASS 
 
 - Java Decompiler projects home page: [http://java-decompiler.github.io](http://java-decompiler.github.io)
 - JD-GUI source code: [https://github.com/java-decompiler/jd-gui](https://github.com/java-decompiler/jd-gui)
+- JD-CLI source code: [https://github.com/jd-wrapper/jd-cli](https://github.com/jd-wrapper/jd-cli)
 
 ## Description
 JD-CLI is a standalone command line utility that displays Java source codes of
