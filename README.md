@@ -13,7 +13,7 @@ for instant access to methods and fields.
 
 ## How to build JD-CLI ?
 ```
-> git clone https://github.com/java-decompiler/jd-gui.git
+> git clone https://github.com/jd-wrapper/jd-cli.git
 > cd jd-cli
 > ./gradlew build
 ```
