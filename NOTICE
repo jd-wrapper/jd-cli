@@ -1,0 +1,17 @@
+JD-CLI license - GPLv3
+
+Libraries used:
+
+Groovy - Apache License 2.0
+Gradle - Apache License 2.0
+JD-Core Java Release - GPLv3
+
+JD-CLI Mac OSX distribution:
+
+universalJavaApplicationStub - MIT License
+
+JD-CLI Windows distribution:
+
+Launch4j - MIT License
+
+args4j - MIT License

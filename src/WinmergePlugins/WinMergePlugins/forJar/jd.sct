@@ -1,0 +1,60 @@
+<scriptlet>
+<!-- Diff Class files with jd plugin for WinMerge . (C) syany 2020 -->
+<implements type="Automation" id="dispatcher">
+  <property name="PluginEvent">
+    <get/>
+  </property>
+  <property name="PluginDescription">
+    <get/>
+  </property>
+  <property name="PluginFileFilters">
+    <get/>
+  </property>
+  <property name="PluginIsAutomatic">
+    <get/>
+  </property>
+  <method name="UnpackFile"/>
+  <method name="PackFile"/>
+</implements>
+
+<script language="VBS">
+Option Explicit
+
+Dim fso: Set fso = CreateObject("Scripting.FileSystemObject")
+Dim wsh: Set wsh = CreateObject("WScript.Shell")
+Dim JdPath: JdPath = "javaw -jar jd-cli-1.0.0-min.jar"
+
+Function get_PluginEvent()
+         get_PluginEvent = "FILE_PACK_UNPACK"
+End Function
+
+Function get_PluginDescription()
+         get_PluginDescription = "Display text decompiled java class file."
+End Function
+
+Function get_PluginFileFilters()
+         get_PluginFileFilters = "\.class$"
+End Function
+
+Function get_PluginIsAutomatic()
+         get_PluginIsAutomatic = True
+End Function
+
+Function PackFile(fileSrc, fileDst, pbChanged, pSubcode)
+    PackFile = False
+End Function
+
+Function UnPackFile(fileSrc, fileDst, pbChanged, pSubcode)
+    Dim cls: Set cls = fso.GetFile(fileSrc)
+    Dim strm: Set strm = fso.OpenTextFile(fileDst,2)
+    
+    Dim exec: set exec = wsh.Exec(JdPath & " -m -b " & cls.ParentFolder & " " & cls.Name)
+    strm.Write(exec.StdOut.ReadAll())
+    strm.Close
+    
+    pbChanged = True
+    pSubcode = 0
+    UnpackFile = True
+End Function
+</script>
+</scriptlet>
